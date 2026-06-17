@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f4ef;
+  color: #222;
+}
+
+header {
+  background: #222;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a, nav button {
+  color: white;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+input, textarea, select, button {
+  padding: 0.7rem;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: #c94f2d;
+  color: white;
+}
+
+.secondary {
+  background: #555;
+}
+
+.danger {
+  background: #9b2226;
+}
+
+.success {
+  background: #2a9d8f;
+}
+
+.message {
+  margin-top: 1rem;
+  font-weight: bold;
+}
