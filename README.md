@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Where2Bite
 
 Where2Bite is a restaurant decision maker web app built with Node.js, Express, Vanilla JavaScript, and MongoDB Native Driver.
@@ -50,22 +49,3 @@ http://localhost:3000
 - This project does not use Mongoose.
 - This project does not use template engines.
 - Backend uses ES Modules only.
-=======
-# Project-2-Restaurant
-
-Color Palette: #C84B31 (terracotta), #ECDBBA (cream), #2D2424 (espresso text), #8A5A44 (warm brown accent)
-
-Authors: Alexander Gutting, Victor Cao
-
-Project Link: 
-
-YouTube Link:
-
-Presentation Slides link: 
-
-Project Objective:
-
-{Insert Screenshot here}
-
-Generative AI used:
->>>>>>> 9530a336e86c60a8ea3f993200dadad6fb5dd547
