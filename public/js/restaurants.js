@@ -2,6 +2,9 @@
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let restaurants = [];
 let searchQuery = "";
+import { requireLogin } from "./api.js";
+
+await requireLogin();
 
 const container = document.getElementById("restaurant");
 
@@ -24,7 +27,7 @@ function dedupeByName(list) {
 // Load the list from the JSON file, then show it on the page.
 async function loadRestaurants() {
   try {
-    const response = await fetch("../restaurants.json");
+    const response = await fetch("/api/restaurants");
     restaurants = dedupeByName(await response.json());
     renderRestaurants();
   } catch (error) {
@@ -131,4 +134,46 @@ function setupSearch() {
 setupSearch();
 loadRestaurants();
 
-// This page was assisted by Claude AI
+// Create Restaurant
+const form = document.querySelector("#restaurant-form");
+
+console.log("FORM =", form);
+
+form?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  console.log("SUBMIT FIRED");
+
+  try {
+    const response = await fetch("/api/restaurants", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: document.querySelector("#name").value.trim(),
+        cuisine: document.querySelector("#cuisine").value.trim(),
+        category: document.querySelector("#category").value.trim()
+      })
+    });
+
+    const data = await response.json();
+
+    console.log("STATUS:", response.status);
+    console.log("RESPONSE:", data);
+
+    if (!response.ok) {
+      throw new Error(data.message || "Failed to create restaurant");
+    }
+
+    form.reset();
+
+    await loadRestaurants();
+
+    alert("Restaurant added successfully!");
+
+  } catch (error) {
+    console.error("ERROR:", error);
+    alert(error.message);
+  }
+});
