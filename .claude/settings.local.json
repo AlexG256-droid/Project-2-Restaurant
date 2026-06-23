@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv restaurants.json public/restaurants.json)",
+      "Bash(node -e \"const d=require\\('./public/restaurants.json'\\); console.log\\('Valid JSON OK  —', d.length, 'restaurants'\\); console.log\\('First entry:', JSON.stringify\\(d[0]\\)\\);\")",
+      "Bash(node -e \"const d=require\\('./public/restaurants.json'\\); console.log\\([...new Set\\(d.map\\(r=>r.image\\)\\)].join\\('\\\\n'\\)\\);\")"
+    ]
+  }
+}

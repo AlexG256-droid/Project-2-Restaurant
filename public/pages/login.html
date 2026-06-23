@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where2Bite Login</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/auth.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Where2Bite</h1>
+  </header>
+  <main>
+    <section class="card">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="username">Username</label>
+        <input id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required>
+
+        <button type="submit">Login</button>
+      </form>
+      <p>Need an account? <a href="/pages/register.html">Register here</a></p>
+      <p id="message" class="message"></p>
+    </section>
+  </main>
+</body>
+</html>
