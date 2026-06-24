@@ -15,7 +15,7 @@
 
     <style>
       .favorites-title {
-        color: rgb(67, 16, 16);
+        color: rgb(255, 255, 255);
         font-weight: bold;
         font-size: 48px;
       }
@@ -38,10 +38,30 @@
                 <!-- Favorite restaurants will be added here -->
             </div>
         </div>
+
+              <div class="container mt-3">
+
+        <a
+          href="/pages/restaurants.html"
+          class="btn btn-primary"
+        >
+          Back to Restaurants
+        </a>
+
+        <button
+          id="logout-button"
+          class="btn btn-danger"
+        >
+          Logout
+        </button>
+
+      </div>
     </main>
 
 
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <script type="module" src="../js/restaurants.js"></script>  
+  <script type="module" src="../js/nav.js"></script>  
+</body>
 </html>

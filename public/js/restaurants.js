@@ -1,5 +1,4 @@
-// Favorites are saved in the browser so they stay between visits.
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let favorites = [];
 let restaurants = [];
 let searchQuery = "";
 import { requireLogin } from "./api.js";
@@ -22,6 +21,21 @@ function dedupeByName(list) {
     seen.add(key);
     return true;
   });
+}
+
+async function loadFavorites() {
+  try {
+    const response = await fetch("/api/favorites");
+
+    if (!response.ok) {
+      throw new Error("Failed to load favorites");
+    }
+
+    favorites = await response.json();
+
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // Load the list from the JSON file, then show it on the page.
@@ -97,18 +111,53 @@ container.addEventListener("click", (event) => {
 });
 
 // Toggle favorite status
-function toggleFavorite(name) {
-  const index = favorites.findIndex((fav) => fav.name === name);
+async function toggleFavorite(name) {
 
-  if (index > -1) {
-    favorites.splice(index, 1);
-  } else {
-    const restaurant = restaurants.find((r) => r.name === name);
-    favorites.push(restaurant);
+  try {
+
+    const restaurant =
+      restaurants.find((r) => r.name === name);
+
+    if (!restaurant) {
+      return;
+    }
+
+    const favorited =
+      favorites.some(
+        (fav) => fav._id === restaurant._id
+      );
+
+    if (favorited) {
+
+      await fetch(
+        `/api/favorites/${restaurant._id}`,
+        {
+          method: "DELETE"
+        }
+      );
+
+      favorites =
+        favorites.filter(
+          (fav) => fav._id !== restaurant._id
+        );
+
+    } else {
+
+      await fetch(
+        `/api/favorites/${restaurant._id}`,
+        {
+          method: "POST"
+        }
+      );
+
+      favorites.push(restaurant);
+    }
+
+    renderRestaurants();
+
+  } catch (error) {
+    console.error(error);
   }
-
-  localStorage.setItem("favorites", JSON.stringify(favorites));
-  renderRestaurants();
 }
 
 // Build a search box above the list and re-render as the user types.
@@ -132,7 +181,9 @@ function setupSearch() {
 
 // Initial load
 setupSearch();
-loadRestaurants();
+
+await loadFavorites();
+await loadRestaurants();
 
 // Create Restaurant
 const form = document.querySelector("#restaurant-form");

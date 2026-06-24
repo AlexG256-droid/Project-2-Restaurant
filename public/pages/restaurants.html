@@ -14,7 +14,7 @@
 
     <style>
       .random-title {
-        color: rgb(67, 16, 16);
+        color: rgb(255, 255, 255);
         font-weight: bold;
         font-size: 48px;
       }
@@ -36,18 +36,6 @@
     </header>
 
     <main>  
-
-        <div class="search-container">
-            <label for="search">Search for Restaurants:</label>
-            <input
-                type="text"
-                id="searchBar"
-                name="search"
-                placeholder="Enter restaurant name"
-                onkeyup="searchRestaurants()" />
-            <button id="search-button">Search</button>
-        </div>
-
         <ul id="restaurantResults"></ul>
 
         <div class="container">
@@ -88,6 +76,21 @@
             </button>
           </form>
         </div>
+        <div class="mb-3">
+
+        <a href="/pages/favorites.html" class="btn btn-warning">
+          Favorites
+        </a>
+
+        <a href="/pages/random.html" class="btn btn-success">
+          Random Picker
+        </a>
+
+        <button id="logout-button" class="btn btn-danger">
+          Logout
+        </button>
+
+      </div>
     </main>
 
     <!-- <button type="button" id="pick-button">Pick a Restaurant</button> -->
@@ -95,5 +98,6 @@
     <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="../js/restaurants.js"></script>  
+  <script type="module" src="../js/nav.js"></script>
 </body>
 </html>
