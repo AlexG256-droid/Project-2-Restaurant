@@ -9,11 +9,11 @@ Where2Bite is a restaurant decision maker web app built with Node.js, Express, V
 
 ## Project Link
 
-Link to website: *add website here*
+Link to website: 
 
 ## YouTube Link
 
-Link to video: *Alex will add YouTube link after video is uploaded*
+Link to video: https://www.youtube.com/watch?v=_eEfZjcKVaA
 
 ## Slides Link
 
@@ -25,7 +25,7 @@ Users can register, log in, create restaurant entries, save favorites, and rando
 
 ## Screenshot
 
-*add screenshot here*
+<img width="440" height="343" alt="Where2Bite" src="https://github.com/user-attachments/assets/20508af4-94f3-436c-aed0-7ef66d18e2f7" />
 
 ## Tech Stack
 
