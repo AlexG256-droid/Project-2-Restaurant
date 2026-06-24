@@ -64,13 +64,9 @@ http://localhost:3000
 
 ## Use of AI
 
-Alex used Claude AI to help write JS code that fits with the Favorites, Restaurants, and Random pages. While Alex setup the basic HTML and JS structure for those specific pages, Claude helped generate most of the JS code needed for the website itself to function properly so that the user can pick and/or add his or her desired restaurants into a specified folder given specific restaurant data that was already added. The model type that Alex used was Opus 4.8. These were the following prompts for the model:
+We used Claude AI and ChatGPT to help write JS code that fits with the Favorites, Restaurants, and Random pages. While we setup the basic HTML and JS structure for those specific pages, the model helped generate some of the JS code needed for the website itself to function properly so that the user can pick and/or add his or her desired restaurants into a specified folder given specific restaurant data that was already added. The model type that Alex used was Claude Opus 4.8. These were the following prompts for the model:
 
 “How can I edit my restaurants.js file so that the user can see different restaurant options to choose from that the user can also add to a favorites folder if interested?”.
 “How can I edit my random.js file so that it picks a random item (restaurant) from the restaurants.json file for the user to potentially put in an existing folder?”
 “How can I edit my favorites.js file so that it implements a “Favorites” folder that the user can add favorite restaurants to?”
 “Does the random picker in HTML and JS successfully pick a random restaurant card for the user? If not, how can I change it so that it does match that criteria?”
-
-
-
-Victor used ChatGPT to ... *add AI info here*
