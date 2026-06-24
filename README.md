@@ -7,10 +7,6 @@ Where2Bite is a restaurant decision maker web app built with Node.js, Express, V
 - Victor Cao
 - Alexander Gutting
 
-## Project Link
-
-Link to website: 
-
 ## YouTube Link
 
 Link to video: https://www.youtube.com/watch?v=_eEfZjcKVaA
