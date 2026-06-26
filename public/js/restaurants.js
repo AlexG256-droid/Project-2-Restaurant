@@ -83,21 +83,23 @@ function renderRestaurants() {
     const card = document.createElement("div");
     card.className = "col-md-6 col-lg-4";
     card.innerHTML = `
-      <div class="card h-100">
-        <img src="${restaurant.image}" class="card-img-top" alt="${restaurant.name}"
-             onerror="this.style.display='none'">
-        <div class="card-body">
-          <h5 class="card-title">${restaurant.name}</h5>
-          <p class="card-text"><strong>Category:</strong> ${restaurant.category}</p>
-        </div>
-        <div class="card-footer bg-white">
-          <button class="btn btn-sm ${favorited ? "btn-danger" : "btn-outline-danger"}"
-                  data-name="${restaurant.name}">
-            ${favorited ? "Remove from Favorites" : "Add to Favorites"}
-          </button>
-        </div>
-      </div>
-    `;
+  <div class="card h-100">
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text"><strong>Category:</strong> <span class="restaurant-category"></span></p>
+    </div>
+    <div class="card-footer bg-white">
+      <button class="btn btn-sm"></button>
+    </div>
+  </div>
+`;
+card.querySelector(".card-title").textContent = restaurant.name;
+card.querySelector(".restaurant-category").textContent = restaurant.category;
+
+const button = card.querySelector("button");
+button.className = `btn btn-sm ${favorited ? "btn-danger" : "btn-outline-danger"}`;
+button.textContent = favorited ? "Remove from Favorites" : "Add to Favorites";
+button.dataset.name = restaurant.name;
     container.appendChild(card);
   });
 }
