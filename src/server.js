@@ -39,7 +39,10 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 app.use("/api/auth", authRoutes);
 app.use("/api/restaurants", restaurantRoutes);
 app.use("/api/favorites", favoriteRoutes);
-
+app.use((err, req, res, next) => {
+  console.error("Server Error Caught:", err);
+  res.status(500).json({ message: "Internal Server Error" });
+});
 app.get("/", (_req, res) => {
   res.redirect("/pages/login.html");
 });
