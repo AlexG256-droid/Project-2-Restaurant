@@ -51,10 +51,11 @@ router.post("/:restaurantId", requireAuth, async (req, res) => {
   }
 
   await db.collection("favorites").insertOne({
-    userId: req.session.user.id,
-    restaurantId,
-    createdAt: new Date()
-  });
+  userId: toObjectId(req.session.user.id),
+  restaurantId: toObjectId(restaurantId),
+  createdAt: new Date()
+ });
+
 
   return res.status(201).json({ message: "Restaurant added to favorites." });
 });
